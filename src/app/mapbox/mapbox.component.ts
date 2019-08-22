@@ -10,19 +10,20 @@ import * as mapboxgl from "mapbox-gl";
 export class MapboxComponent implements OnInit {
   map: mapboxgl.Map;
   style = 'mapbox://styles/mapbox/dark-v10';
-  lat = 37.75;
-  lng = -122.41;
+  lat = -43.53;
+  lng = 172.63;
 
   constructor() {
   }
 
   ngOnInit() {
     (mapboxgl as typeof mapboxgl).accessToken = environment.mapbox.accessToken;
+    // Christchurch, New Zealand
     this.map = new mapboxgl.Map({
       container: 'map',
       style: this.style,
       zoom: 9,
-      center: [this.lng, this.lat]
+      center: [this.lng, this.lat],
     });
     // Add map controls
     this.map.addControl(new mapboxgl.NavigationControl());
